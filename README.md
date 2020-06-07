@@ -1,8 +1,15 @@
 ## 个人社区
 
 ## 资料
-[Spring文档](https://spring.io/)
-[Bootstrap组件](https://v3.bootcss.com/components/#navbar)
-[github授权](https://developer.github.com/apps/)
+[Spring文档](https://spring.io/)  
+[Bootstrap组件](https://v3.bootcss.com/components/#navbar)  
+[Github Oauth](https://developer.github.com/apps/)  
 ## 工具
-https://github.com/
+[Git](https://github.com/)
+## Instruction
+git status  查看状态  
+git add .   把当前目录改变的文件存入暂存  
+git status  再次查看  
+git commit -m "注释"    
+git status  查看工作区  
+git push    提交  
