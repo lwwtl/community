@@ -1,8 +1,6 @@
 package life.rlw.community.model;
 
 public class User {
-    private Integer id;
-
     public Integer getId() {
         return id;
     }
@@ -10,16 +8,6 @@ public class User {
     public void setId(Integer id) {
         this.id = id;
     }
-
-    public String getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
-
-    private String accountId;
 
     public String getName() {
         return name;
@@ -29,6 +17,13 @@ public class User {
         this.name = name;
     }
 
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
+    }
+
+    public String getAccountId() {
+        return accountId;
+    }
     public String getToken() {
         return token;
     }
@@ -53,7 +48,12 @@ public class User {
         this.gmtModified = gmtModified;
     }
 
+    private Integer id;
     private String name;
+
+
+
+    private String accountId;
     private String token;
     private Long gmtCreate;
     private Long gmtModified;
