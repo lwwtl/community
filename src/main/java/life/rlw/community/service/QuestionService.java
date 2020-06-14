@@ -14,7 +14,7 @@ import java.util.List;
 
 @Service
 public class QuestionService {
-
+//service起到一个组装的作用，当一个请求需要question和user时，需要一个中间层，这个中间层就是service
     @Autowired(required = false)
     private QuestionMapper questionMapper;
 
@@ -25,6 +25,7 @@ public class QuestionService {
         List<Question>questions=questionMapper.list();
         List<QuestionDTO>questionDTOList=new ArrayList<>();
         for (Question question : questions) {
+            //通过question.creator找到user
             User user=userMapper.findById(question.getCreator());
             QuestionDTO questionDTO = new QuestionDTO();
             BeanUtils.copyProperties(question,questionDTO);
