@@ -1,7 +1,9 @@
-package life.rlw.community.model;
+package life.rlw.community.dto;
 
-public class Question {
+import life.rlw.community.model.User;
 
+public class QuestionDTO {
+    private Integer id;
 
     public Integer getId() {
         return id;
@@ -83,7 +85,6 @@ public class Question {
         this.likeCount = likeCount;
     }
 
-    private Integer id;
     private String title;
     private String description;
     private String tag;
@@ -93,4 +94,14 @@ public class Question {
     private Integer viewCount;
     private Integer commentCount;
     private Integer likeCount;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    private User user;
 }

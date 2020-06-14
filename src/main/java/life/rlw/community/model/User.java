@@ -50,11 +50,17 @@ public class User {
 
     private Integer id;
     private String name;
-
-
-
     private String accountId;
     private String token;
     private Long gmtCreate;
     private Long gmtModified;
+    private String avatarUrl;
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
 }
