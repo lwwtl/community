@@ -10,7 +10,6 @@
 ## Instruction
 git status  查看状态  
 git add .   把当前目录改变的文件存入暂存  
-git status  再次查看  
 git commit -m "注释"    
 git status  查看工作区  
 git push    提交  
@@ -26,4 +25,18 @@ create table USER
 	constraint USER_PK  
 	primary key (ID)  
 );  
-
+create table QUESTION
+(
+    ID            INT auto_increment,
+    TITLE         VARCHAR(50),
+    DESCRIPTION   TEXT,
+    GMT_CREATE    BIGINT,
+    GMT_MODIFIED  BIGINT,
+    CREATOR       INT,
+    COMMENT_COUNT INT default 0,
+    VIEW_COUNT    INT default 0,
+    LIKE_COUNT    INT default 0,
+    TAG           VARCHAR(256),
+    constraint QUESTION_PK
+        primary key (ID)
+);
