@@ -1,5 +1,6 @@
 package life.rlw.community.controller;
 
+import life.rlw.community.dto.PageDTO;
 import life.rlw.community.dto.QuestionDTO;
 import life.rlw.community.mapper.QuestionMapper;
 import life.rlw.community.mapper.UserMapper;
@@ -29,7 +30,11 @@ public class IndexController {
     @GetMapping("/")
 //    访问首页时，循环获取到cookie，拿到token的值去数据库中查找，如果有把user放到index.html的session中
     public String index(HttpServletRequest request,
-                        Model model){
+                        Model model,
+                        //获取页码和分页数
+                        @RequestParam(name = "page",defaultValue = "1") Integer page,
+                        @RequestParam(name = "size",defaultValue = "5") Integer size
+                        ){
         Cookie[] cookies = request.getCookies();
         if(cookies!=null &&cookies.length!=0)
             for (Cookie cookie : cookies) {
@@ -42,9 +47,9 @@ public class IndexController {
                     break;
                 }
             }
-
-        List<QuestionDTO> questionList=questionService.list();
-        model.addAttribute("questions",questionList);
+        //将参数传到service
+        PageDTO pagination=questionService.list(page,size);
+        model.addAttribute("pagination",pagination);
 
         return "index";}
 }
