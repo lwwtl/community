@@ -26,16 +26,59 @@ public class QuestionService {
 
         PageDTO pageDTO = new PageDTO();
         //通过questionMapper拿到totalCount(总条数)的值
+        Integer totalPage;
+
         Integer totalCount=questionMapper.count();
+        if(totalCount%size==0){
+            totalPage=totalCount/size;
+        }else{
+            totalPage=totalCount/size + 1;
+        }
         //将这些参数传给dto进行分页处理
-        pageDTO.setPagination(totalCount,page,size);
         //页数异常处理
         if(page<1){page=1;}
-        if(page>pageDTO.getTotalPage()){page=pageDTO.getTotalPage();}
+        if(page>totalPage){page=totalPage;}
+        pageDTO.setPagination(totalPage,page);
+
         //size*(page-1)
         Integer offset = size*(page-1);
         List<Question>questions=questionMapper.list(offset,size);
         List<QuestionDTO>questionDTOList=new ArrayList<>();
+
+        for (Question question : questions) {
+            //通过question.creator找到user
+            User user=userMapper.findById(question.getCreator());
+            QuestionDTO questionDTO = new QuestionDTO();
+            BeanUtils.copyProperties(question,questionDTO);
+            questionDTO.setUser(user);
+            questionDTOList.add(questionDTO);
+        }
+        pageDTO.setQuestions(questionDTOList);
+
+        return pageDTO;
+    }
+
+    public PageDTO list(Integer uesrid, Integer page, Integer size) {
+        PageDTO pageDTO = new PageDTO();
+        //通过questionMapper拿到totalCount(总条数)的值
+        Integer totalPage;
+
+        Integer totalCount=questionMapper.countByUserId(uesrid);
+        if(totalCount%size==0){
+            totalPage=totalCount/size;
+        }else{
+            totalPage=totalCount/size + 1;
+        }
+        //将这些参数传给dto进行分页处理
+        //页数异常处理
+        if(page<1){page=1;}
+        if(page>totalPage){page=totalPage;}
+        pageDTO.setPagination(totalPage,page);
+
+        //size*(page-1)
+        Integer offset = size*(page-1);
+        List<Question>questions=questionMapper.listByUserId(uesrid,offset,size);
+        List<QuestionDTO>questionDTOList = new ArrayList<>();
 
         for (Question question : questions) {
             //通过question.creator找到user
