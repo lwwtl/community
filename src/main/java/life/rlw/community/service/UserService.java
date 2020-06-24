@@ -1,5 +1,6 @@
 package life.rlw.community.service;
 
+
 import life.rlw.community.mapper.UserMapper;
 import life.rlw.community.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,16 +8,17 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-    @Autowired
+    @Autowired(required = false)
     private UserMapper userMapper;
 
     public void createOrUpdate(User user) {
         User dbUser=userMapper.findByAccountId(user.getAccountId());
         if(dbUser==null){
+            //建立新用户
             user.setGmtCreate(System.currentTimeMillis());
             user.setGmtModified(user.getGmtCreate());
             userMapper.insert(user);
-    }else{
+        }else{
             dbUser.setGmtModified(System.currentTimeMillis());
             dbUser.setAvatarUrl(user.getAvatarUrl());
             dbUser.setName(user.getName());
