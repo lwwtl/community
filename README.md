@@ -40,3 +40,7 @@ create table QUESTION
     constraint QUESTION_PK
         primary key (ID)
 );
+```bash
+mvn flyway:migrate
+mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
+```
