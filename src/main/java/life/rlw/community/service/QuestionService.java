@@ -2,6 +2,8 @@ package life.rlw.community.service;
 
 import life.rlw.community.dto.PageDTO;
 import life.rlw.community.dto.QuestionDTO;
+import life.rlw.community.exception.CustomizeErrorCode;
+import life.rlw.community.exception.CustomizeException;
 import life.rlw.community.mapper.QuestionMapper;
 import life.rlw.community.mapper.UserMapper;
 import life.rlw.community.model.Question;
@@ -107,6 +109,10 @@ public class QuestionService {
 
     public QuestionDTO getById(Integer id) {
         Question question=questionMapper.selectByPrimaryKey(id);
+        if(question==null)
+        {
+            throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUN);
+        }
         QuestionDTO questionDTO = new QuestionDTO();
         BeanUtils.copyProperties(question,questionDTO);
         User user=userMapper.selectByPrimaryKey(question.getCreator());
@@ -130,7 +136,11 @@ public class QuestionService {
             QuestionExample example=new QuestionExample();
             example.createCriteria()
                     .andIdEqualTo(question.getId());
-            questionMapper.updateByExampleSelective(updateQuestion,example);
+            int updated=questionMapper.updateByExampleSelective(updateQuestion,example);
+            if (updated!=1)
+            {
+                throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUN);
+            }
         }
     }
 }
