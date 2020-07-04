@@ -4,6 +4,7 @@ import life.rlw.community.dto.PageDTO;
 import life.rlw.community.dto.QuestionDTO;
 import life.rlw.community.exception.CustomizeErrorCode;
 import life.rlw.community.exception.CustomizeException;
+import life.rlw.community.mapper.QuestionExtMapper;
 import life.rlw.community.mapper.QuestionMapper;
 import life.rlw.community.mapper.UserMapper;
 import life.rlw.community.model.Question;
@@ -22,6 +23,9 @@ public class QuestionService {
 //service起到一个组装的作用，当一个请求需要question和user时，需要一个中间层，这个中间层就是service
     @Autowired(required = false)
     private QuestionMapper questionMapper;
+
+    @Autowired(required = false)
+    private QuestionExtMapper questionExtMapper;
 
     @Autowired(required = false)
     private UserMapper userMapper;
@@ -145,13 +149,11 @@ public class QuestionService {
     }
 
     public void incView(Integer id) {
-        Question question=questionMapper.selectByPrimaryKey(id);
-        Question updateQuestion = new Question();
 
-        updateQuestion.setViewCount(question.getViewCount()+1);
-        QuestionExample questionExample = new QuestionExample();
-        questionExample.createCriteria()
-                .andIdEqualTo(id);
-        questionMapper.updateByExampleSelective(updateQuestion, questionExample);
+        Question question=new Question();
+        question.setId(id);
+        question.setViewCount(1);
+        questionExtMapper.incView(question);
+
     }
 }
