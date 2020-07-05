@@ -72,4 +72,8 @@ public class AuthorizeController {
         response.addCookie(cookie);
         return "redirect:/";
     }
+    @GetMapping("/login")
+    private String login(){
+        return "login";
+    }
 }
