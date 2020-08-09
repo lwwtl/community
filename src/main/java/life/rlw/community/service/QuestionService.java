@@ -68,7 +68,7 @@ public class QuestionService {
         return pageDTO;
     }
 
-    public PageDTO list(Integer uesrid, Integer page, Integer size) {
+    public PageDTO list(Long uesrid, Integer page, Integer size) {
         PageDTO pageDTO = new PageDTO();
         //通过questionMapper拿到totalCount(总条数)的值
         Integer totalPage;
@@ -111,7 +111,7 @@ public class QuestionService {
         return pageDTO;
     }
 
-    public QuestionDTO getById(Integer id) {
+    public QuestionDTO getById(Long id) {
         Question question=questionMapper.selectByPrimaryKey(id);
         if(question==null)
         {
@@ -129,6 +129,9 @@ public class QuestionService {
             //创建
             question.setGmtCreate(System.currentTimeMillis());
             question.setGmtModified(question.getGmtCreate());
+            question.setViewCount(0);
+            question.setLikeCount(0);
+            question.setCommentCount(0);
             questionMapper.insert(question);
         }else{
             //更新
@@ -148,7 +151,7 @@ public class QuestionService {
         }
     }
 
-    public void incView(Integer id) {
+    public void incView(Long id) {
 
         Question question=new Question();
         question.setId(id);
