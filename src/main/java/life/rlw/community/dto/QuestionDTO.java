@@ -3,13 +3,13 @@ package life.rlw.community.dto;
 import life.rlw.community.model.User;
 
 public class QuestionDTO {
-    private Integer id;
+    private Long id;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
