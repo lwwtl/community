@@ -1,9 +1,8 @@
 package life.rlw.community.controller;
 
-import life.rlw.community.dto.CommentDTO;
+import life.rlw.community.dto.CommentCreateDTO;
 import life.rlw.community.dto.ResultDTO;
 import life.rlw.community.exception.CustomizeErrorCode;
-import life.rlw.community.mapper.CommentMapper;
 import life.rlw.community.model.Comment;
 import life.rlw.community.model.User;
 import life.rlw.community.service.CommentService;
@@ -15,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
 
 
 @Controller
@@ -29,7 +26,7 @@ public class CommentController {
 
     @ResponseBody
     @RequestMapping(value = "/comment",method = RequestMethod.POST)
-    public Object post(@RequestBody CommentDTO commentDTO,
+    public Object post(@RequestBody CommentCreateDTO commentDTO,
                        HttpServletRequest request){
 
         User user=(User)request.getSession().getAttribute("user");
