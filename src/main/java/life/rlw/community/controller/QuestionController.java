@@ -31,6 +31,7 @@ public class QuestionController {
         List<CommentDTO> comments = commentService.listByQuestionId(id);
         questionService.incView(id);
         model.addAttribute("question",questionDTO);
+        model.addAttribute("comments",comments);
         return "question";
     }
 }
