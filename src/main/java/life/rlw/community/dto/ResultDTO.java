@@ -4,8 +4,9 @@ import life.rlw.community.exception.CustomizeErrorCode;
 import life.rlw.community.exception.CustomizeException;
 
 import javax.xml.transform.Result;
+import java.util.List;
 
-public class ResultDTO {
+public class ResultDTO<T> {
 
 
 
@@ -26,16 +27,27 @@ public class ResultDTO {
         this.message = message;
     }
 
+    private Integer code;
+    private String message;
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
     @Override
     public String toString() {
         return "ResultDTO{" +
                 "code=" + code +
                 ", message='" + message + '\'' +
+                ", data=" + data +
                 '}';
     }
 
-    private Integer code;
-    private String message;
+    private T data;
 
     public static ResultDTO errorOf(CustomizeErrorCode errorCoder) {
         return errorOf(errorCoder.getCode(),errorCoder.getMessage());
@@ -55,6 +67,14 @@ public class ResultDTO {
         ResultDTO resultDTO=new ResultDTO();
         resultDTO.setCode(200);
         resultDTO.setMessage("请求成功");
+        return resultDTO;
+    }
+
+    public static <T> ResultDTO okOf(T t){
+        ResultDTO resultDTO=new ResultDTO();
+        resultDTO.setCode(200);
+        resultDTO.setMessage("请求成功");
+        resultDTO.setData(t);
         return resultDTO;
     }
 }

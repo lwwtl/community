@@ -1,8 +1,8 @@
 package life.rlw.community.controller;
 
-import life.rlw.community.dto.CommentCreateDTO;
 import life.rlw.community.dto.CommentDTO;
 import life.rlw.community.dto.QuestionDTO;
+import life.rlw.community.enums.CommentTypeEnum;
 import life.rlw.community.service.CommentService;
 import life.rlw.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class QuestionController {
         QuestionDTO questionDTO = questionService.getById(id);
         //阅读数
 
-        List<CommentDTO> comments = commentService.listByQuestionId(id);
+        List<CommentDTO> comments = commentService.listByTargetId(id, CommentTypeEnum.QUESTION);
         questionService.incView(id);
         model.addAttribute("question",questionDTO);
         model.addAttribute("comments",comments);

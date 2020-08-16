@@ -4,7 +4,12 @@
 function post() {
     var questionId = $("#question_id").val();
     var content = $("#comment_content").val();
-    if(content==""){
+    comment2target(questionId,1,content);
+}
+
+function comment2target(targetId,type,content) {
+
+    if(!content){
         alert("输入内容不能为空！");
         return;
     }
@@ -14,29 +19,33 @@ function post() {
         contentType:"application/json",
         dateType:"json",
         data: JSON.stringify({
-            "parentId": questionId,
+            "parentId": targetId,
             "content": content,
-            "type": 1
+            "type": type
         }),
         success:function (response) {
-                if(response.code==200){
-                    window.location.reload();
-                }else{
-                    if(response.code==2003){
-                        var isAccepted = confirm(response.message);
-                        if(isAccepted){
-                            window.open("https://github.com/login/oauth/authorize?client_id=Iv1.923a425f456712c6&redirect_uri=http://localhost:8887/callback&scope=user&state=1");
-                            window.localStorage.setItem("closable",true);
-                        }
-                    }else
-                    {
-                        alert(response.message);
+            if(response.code==200){
+                window.location.reload();
+            }else{
+                if(response.code==2003){
+                    var isAccepted = confirm(response.message);
+                    if(isAccepted){
+                        window.open("https://github.com/login/oauth/authorize?client_id=Iv1.923a425f456712c6&redirect_uri=http://localhost:8887/callback&scope=user&state=1");
+                        window.localStorage.setItem("closable",true);
                     }
+                }else
+                {
+                    alert(response.message);
                 }
+            }
 
             console.log(response);
         }
     });
+}
+
+function comment(commentId) {
+
 }
 /**
  * 二级评论*/
