@@ -76,3 +76,10 @@ body{
 .menu .comment-icon:hover{
     color: skyblue;
 }
+.second-count{
+    position: relative;
+    left: -10px;
+    display: inline-block;
+    bottom: 3px;
+    font-size: 13px;
+}

@@ -79,6 +79,21 @@ public class CommentDTO {
     private Long id;
     private Long parentId;
 
+    private Integer type;
+    private Long commentator;
+    private Long gmtCreate;
+    private Long gmtModified;
+    private Long likeCount;
+    private String content;
+
+    public Integer getSecondCount() {
+        return secondCount;
+    }
+
+    public void setSecondCount(Integer secondCount) {
+        this.secondCount = secondCount;
+    }
+
     @Override
     public String toString() {
         return "CommentDTO{" +
@@ -90,16 +105,12 @@ public class CommentDTO {
                 ", gmtModified=" + gmtModified +
                 ", likeCount=" + likeCount +
                 ", content='" + content + '\'' +
+                ", secondCount=" + secondCount +
+                ", user=" + user +
                 '}';
     }
 
-    private Integer type;
-    private Long commentator;
-    private Long gmtCreate;
-    private Long gmtModified;
-    private Long likeCount;
-    private String content;
-
+    private Integer secondCount;
 
     private User user;
 }

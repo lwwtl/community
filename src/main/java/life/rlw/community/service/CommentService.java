@@ -4,10 +4,7 @@ import life.rlw.community.dto.CommentDTO;
 import life.rlw.community.enums.CommentTypeEnum;
 import life.rlw.community.exception.CustomizeErrorCode;
 import life.rlw.community.exception.CustomizeException;
-import life.rlw.community.mapper.CommentMapper;
-import life.rlw.community.mapper.QuestionExtMapper;
-import life.rlw.community.mapper.QuestionMapper;
-import life.rlw.community.mapper.UserMapper;
+import life.rlw.community.mapper.*;
 import life.rlw.community.model.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +22,9 @@ public class CommentService {
 
     @Autowired(required = false)
     private CommentMapper commentMapper;
+
+    @Autowired(required = false)
+    private CommentExtMapper commentExtMapper;
 
     @Autowired(required = false)
     private QuestionMapper questionMapper;
@@ -51,6 +51,11 @@ public class CommentService {
                 throw new CustomizeException(CustomizeErrorCode.COMMENT_NOT_FOUND);
             }
             commentMapper.insert(comment);
+            //回复数量
+            Comment parentComment = new Comment();
+            parentComment.setId(comment.getParentId());
+            parentComment.setSecondCount(1);
+            commentExtMapper.inCommentCount(parentComment);
         }else {
             //回复问题
             Question question=questionMapper.selectByPrimaryKey(comment.getParentId());
