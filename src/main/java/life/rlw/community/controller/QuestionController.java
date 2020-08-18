@@ -3,6 +3,7 @@ package life.rlw.community.controller;
 import life.rlw.community.dto.CommentDTO;
 import life.rlw.community.dto.QuestionDTO;
 import life.rlw.community.enums.CommentTypeEnum;
+import life.rlw.community.model.Question;
 import life.rlw.community.service.CommentService;
 import life.rlw.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,11 +28,13 @@ public class QuestionController {
                            ){
         QuestionDTO questionDTO = questionService.getById(id);
         //阅读数
+        List<QuestionDTO> relateQuestions = questionService.selectRelated(questionDTO);
 
         List<CommentDTO> comments = commentService.listByTargetId(id, CommentTypeEnum.QUESTION);
         questionService.incView(id);
         model.addAttribute("question",questionDTO);
         model.addAttribute("comments",comments);
+        model.addAttribute("relateQuestions",relateQuestions);
         return "question";
     }
 }
