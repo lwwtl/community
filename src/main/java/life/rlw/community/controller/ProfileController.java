@@ -2,6 +2,7 @@ package life.rlw.community.controller;
 
 import life.rlw.community.dto.PageDTO;
 import life.rlw.community.model.User;
+import life.rlw.community.service.NotificationService;
 import life.rlw.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,9 @@ public class ProfileController {
     @Autowired(required = false)
     private QuestionService questionService;
 
+    @Autowired(required = false)
+    private NotificationService notificationService;
+
     @GetMapping("/profile/{action}")
     public String profile(HttpServletRequest request,
                           @PathVariable(name = "action")String action,
@@ -32,13 +36,17 @@ public class ProfileController {
         if("questions".equals(action)){
             model.addAttribute("section","questions");
             model.addAttribute("sectionName","我的提问");
-
+            PageDTO pagination = questionService.list(user.getId(), page, size);
+            model.addAttribute("pagination",pagination);
         }else if("replies".equals(action)){
+            PageDTO pagination = notificationService.list(user.getId(),page,size);
+            //Long unreadCount = notificationService.unreadCount(user.getId());
             model.addAttribute("section","replies");
+            model.addAttribute("pagination",pagination);
+            // model.addAttribute("unreadCount",unreadCount);
             model.addAttribute("sectionName","最新回复");
         }
-        PageDTO pagination = questionService.list(user.getId(), page, size);
-        model.addAttribute("pagination",pagination);
+
 
         return "profile";
     }

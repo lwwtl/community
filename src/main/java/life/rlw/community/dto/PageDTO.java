@@ -5,16 +5,18 @@ import life.rlw.community.model.Question;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PageDTO {
-    public List<QuestionDTO> getQuestions() {
-        return questions;
+public class PageDTO<T> {
+
+
+    public List<T> getData() {
+        return data;
     }
 
-    public void setQuestions(List<QuestionDTO> questions) {
-        this.questions = questions;
+    public void setData(List<T> data) {
+        this.data = data;
     }
 
-    private List<QuestionDTO> questions;
+    private List<T> data;
 
 
     public boolean isShowPrevious() {
