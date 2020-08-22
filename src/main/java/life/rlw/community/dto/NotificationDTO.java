@@ -5,13 +5,8 @@ import life.rlw.community.model.User;
 public class NotificationDTO {
 
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+
 
     public Long getGmtCreate() {
         return gmtCreate;
@@ -53,13 +48,30 @@ public class NotificationDTO {
         this.outerTitle = outerTitle;
     }
 
-    public String getType() {
+    public Long getOuterid() {
+        return outerid;
+    }
+
+    public void setOuterid(Long outerid) {
+        this.outerid = outerid;
+    }
+
+    public Integer getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Integer type) {
         this.type = type;
     }
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
+
 
     @Override
     public String toString() {
@@ -70,8 +82,18 @@ public class NotificationDTO {
                 ", notifier=" + notifier +
                 ", notifierName='" + notifierName + '\'' +
                 ", outerTitle='" + outerTitle + '\'' +
-                ", type='" + type + '\'' +
+                ", outerid=" + outerid +
+                ", type=" + type +
+                ", typeName='" + typeName + '\'' +
                 '}';
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     private Long id;
@@ -80,7 +102,11 @@ public class NotificationDTO {
     private Long notifier;
     private String notifierName;
     private String outerTitle;
-    private String type;
+    private Long outerid;
+    private Integer type;
+    private String typeName;
+
+
 
 
 }
