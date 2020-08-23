@@ -4,9 +4,12 @@
 [Spring文档](https://spring.io/)  
 [Bootstrap组件](https://v3.bootcss.com/components/#navbar)  
 [Github Oauth](https://developer.github.com/apps/)  
-[thymeleaf](https://www.thymeleaf.org/index.html)  
+[Thymeleaf](https://www.thymeleaf.org/index.html)  
+[Markdown插件]  
 ## 工具
 [Git](https://github.com/)
+[Flyway]  
+[Postman]  
 ## Instruction
 git status  查看状态  
 git add .   把当前目录改变的文件存入暂存  
