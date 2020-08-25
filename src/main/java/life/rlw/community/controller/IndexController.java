@@ -22,12 +22,13 @@ public class IndexController {
                         Model model,
                         //获取页码和分页数
                         @RequestParam(name = "page",defaultValue = "1") Integer page,
-                        @RequestParam(name = "size",defaultValue = "5") Integer size
+                        @RequestParam(name = "size",defaultValue = "5") Integer size,
+                        @RequestParam(name = "search",required = false) String search
                         ){
 
         //将参数传到service
-        PageDTO pagination=questionService.list(page,size);
+        PageDTO pagination=questionService.list(search,page,size);
         model.addAttribute("pagination",pagination);
-
+        model.addAttribute("search",search);
         return "index";}
 }

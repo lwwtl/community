@@ -2,6 +2,7 @@ package life.rlw.community.service;
 
 import life.rlw.community.dto.PageDTO;
 import life.rlw.community.dto.QuestionDTO;
+import life.rlw.community.dto.QuestionQueryDTO;
 import life.rlw.community.exception.CustomizeErrorCode;
 import life.rlw.community.exception.CustomizeException;
 import life.rlw.community.mapper.QuestionExtMapper;
@@ -10,11 +11,15 @@ import life.rlw.community.mapper.UserMapper;
 import life.rlw.community.model.Question;
 import life.rlw.community.model.QuestionExample;
 import life.rlw.community.model.User;
+
 import org.apache.ibatis.session.RowBounds;
-import org.h2.util.StringUtils;
+
+
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,13 +39,22 @@ public class QuestionService {
     @Autowired(required = false)
     private UserMapper userMapper;
 
-    public PageDTO list(Integer page, Integer size) {
+    public PageDTO list(String search,Integer page, Integer size) {
+
+        if(StringUtils.isNotBlank(search)){
+            String[] tags = StringUtils.split(search," ");
+            search=Arrays.stream(tags).collect(Collectors.joining("|"));
+        }
+
+
 
         PageDTO pageDTO = new PageDTO();
         //通过questionMapper拿到totalCount(总条数)的值
         Integer totalPage;
 
-        Integer totalCount=(int)questionMapper.countByExample(new QuestionExample());
+        QuestionQueryDTO questionQueryDTO = new QuestionQueryDTO();
+        questionQueryDTO.setSearch(search);
+        Integer totalCount=questionExtMapper.countBySearch(questionQueryDTO);
         if(totalCount%size==0){
             totalPage=totalCount/size;
         }else{
@@ -57,7 +71,9 @@ public class QuestionService {
 
         QuestionExample questionExample = new QuestionExample();
         questionExample.setOrderByClause("gmt_create desc");
-        List<Question>questions=questionMapper.selectByExampleWithRowbounds(questionExample ,new RowBounds(offset,size));
+        questionQueryDTO.setSize(size);
+        questionQueryDTO.setPage(offset);
+        List<Question>questions=questionExtMapper.selectBySearch(questionQueryDTO);
 
         List<QuestionDTO>questionDTOList=new ArrayList<>();
 
@@ -167,10 +183,10 @@ public class QuestionService {
     }
 
     public List<QuestionDTO> selectRelated(QuestionDTO queryDTO) {
-        if(StringUtils.isNullOrEmpty(queryDTO.getTag())){
+        if(StringUtils.isNotBlank(queryDTO.getTag())){
             return new ArrayList<>();
         }
-        String[] tags = StringUtils.arraySplit(queryDTO.getTag(),'#',true);
+        String[] tags = StringUtils.split(queryDTO.getTag(),"#" );
         String regexpTag=Arrays.stream(tags).collect(Collectors.joining("|"));
         Question question = new Question();
         question.setId(queryDTO.getId());

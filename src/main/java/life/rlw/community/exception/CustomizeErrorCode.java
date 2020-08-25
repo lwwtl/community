@@ -9,7 +9,8 @@ public enum CustomizeErrorCode implements ICustomizeErrorCode{
     COMMENT_NOT_FOUND(2006,"你回复的评论不存在!"),
     CONTENT_IS_EMPTY(2007,"输入内容不能为空!"),
     READ_NOTIFICATION_FAIL(2008,"读取信息错误!"),
-    NOTIFICATION_NO_FOUND(2009,"读取信息错误!");
+    NOTIFICATION_NO_FOUND(2009,"读取信息错误!"),
+    FILE_UPLOAD_FAIL(2010,"图片上传失败!");
 
     @Override
     public String getMessage() {

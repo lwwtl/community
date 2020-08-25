@@ -103,3 +103,8 @@ body{
     list-style: none;
     padding-left: 0;
 }
+.footer{
+    padding: 10px;
+    color: #666;
+    text-align: center;
+}
