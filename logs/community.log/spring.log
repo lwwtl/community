@@ -557,3 +557,52 @@ org.apache.ibatis.reflection.ReflectionException: There is no getter for propert
 2020-08-26 15:10:27.890 DEBUG 18784 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, AVATAR_URL from USER where ID = ?
 2020-08-26 15:10:27.891 DEBUG 18784 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 1(Long)
 2020-08-26 15:10:27.891 DEBUG 18784 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-08-26 15:21:07.214  INFO 23964 --- [main] life.rlw.community.CommunityApplication  : Starting CommunityApplication on DESKTOP-GQISRSU with PID 23964 (D:\IdeaProjects\community\target\classes started by rlw in D:\IdeaProjects\community)
+2020-08-26 15:21:07.217  INFO 23964 --- [main] life.rlw.community.CommunityApplication  : No active profile set, falling back to default profiles: default
+2020-08-26 15:21:08.567  INFO 23964 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2020-08-26 15:21:08.575  INFO 23964 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-08-26 15:21:08.575  INFO 23964 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-08-26 15:21:08.716  INFO 23964 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-08-26 15:21:08.716  INFO 23964 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1437 ms
+2020-08-26 15:21:09.316  INFO 23964 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-26 15:21:09.372  INFO 23964 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-08-26 15:21:09.544  INFO 23964 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2020-08-26 15:21:09.554  INFO 23964 --- [main] life.rlw.community.CommunityApplication  : Started CommunityApplication in 3.026 seconds (JVM running for 6.97)
+2020-08-26 15:21:16.142  INFO 23964 --- [http-nio-8887-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-26 15:21:16.142  INFO 23964 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-08-26 15:21:16.147  INFO 23964 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-08-26 15:21:16.202  INFO 23964 --- [http-nio-8887-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-08-26 15:21:16.332  INFO 23964 --- [http-nio-8887-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-08-26 15:21:16.339 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.QuestionExtMapper.countBySearch  : ==>  Preparing: select COUNT(*) from QUESTION
+2020-08-26 15:21:16.357 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.QuestionExtMapper.countBySearch  : ==> Parameters: 
+2020-08-26 15:21:16.371 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.QuestionExtMapper.countBySearch  : <==      Total: 1
+2020-08-26 15:21:16.377 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.Q.selectBySearch                 : ==>  Preparing: select * from QUESTION order by gmt_create desc limit ?,?
+2020-08-26 15:21:16.379 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.Q.selectBySearch                 : ==> Parameters: 0(Integer), 5(Integer)
+2020-08-26 15:21:16.388 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.Q.selectBySearch                 : <==      Total: 5
+2020-08-26 15:21:16.388 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, AVATAR_URL from USER where ID = ?
+2020-08-26 15:21:16.390 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 2(Long)
+2020-08-26 15:21:16.391 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-08-26 15:21:16.396 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, AVATAR_URL from USER where ID = ?
+2020-08-26 15:21:16.396 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 1(Long)
+2020-08-26 15:21:16.397 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-08-26 15:21:16.398 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, AVATAR_URL from USER where ID = ?
+2020-08-26 15:21:16.398 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 1(Long)
+2020-08-26 15:21:16.399 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-08-26 15:21:16.399 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, AVATAR_URL from USER where ID = ?
+2020-08-26 15:21:16.399 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 1(Long)
+2020-08-26 15:21:16.400 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-08-26 15:21:16.400 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, AVATAR_URL from USER where ID = ?
+2020-08-26 15:21:16.400 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 1(Long)
+2020-08-26 15:21:16.401 DEBUG 23964 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-08-26 15:21:18.478 DEBUG 23964 --- [http-nio-8887-exec-3] l.r.c.m.Q.selectByPrimaryKey             : ==>  Preparing: select ID, TITLE, GMT_CREATE, GMT_MODIFIED, CREATOR, COMMENT_COUNT, VIEW_COUNT, LIKE_COUNT, TAG , DESCRIPTION from QUESTION where ID = ?
+2020-08-26 15:21:18.478 DEBUG 23964 --- [http-nio-8887-exec-3] l.r.c.m.Q.selectByPrimaryKey             : ==> Parameters: 898(Long)
+2020-08-26 15:21:18.480 DEBUG 23964 --- [http-nio-8887-exec-3] l.r.c.m.Q.selectByPrimaryKey             : <==      Total: 1
+2020-08-26 15:21:18.481 DEBUG 23964 --- [http-nio-8887-exec-3] l.r.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, AVATAR_URL from USER where ID = ?
+2020-08-26 15:21:18.481 DEBUG 23964 --- [http-nio-8887-exec-3] l.r.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 1(Long)
+2020-08-26 15:21:18.481 DEBUG 23964 --- [http-nio-8887-exec-3] l.r.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-08-26 15:21:18.504 DEBUG 23964 --- [http-nio-8887-exec-3] l.r.c.m.CommentMapper.selectByExample    : ==>  Preparing: select ID, PARENT_ID, TYPE, COMMENTATOR, GMT_CREATE, GMT_MODIFIED, LIKE_COUNT, CONTENT, SECOND_COUNT from COMMENT WHERE ( PARENT_ID = ? and TYPE = ? ) order by gmt_create desc
+2020-08-26 15:21:18.505 DEBUG 23964 --- [http-nio-8887-exec-3] l.r.c.m.CommentMapper.selectByExample    : ==> Parameters: 898(Long), 1(Integer)
+2020-08-26 15:21:18.506 DEBUG 23964 --- [http-nio-8887-exec-3] l.r.c.m.CommentMapper.selectByExample    : <==      Total: 0
+2020-08-26 15:21:18.506 DEBUG 23964 --- [http-nio-8887-exec-3] l.r.c.mapper.QuestionExtMapper.incView   : ==>  Preparing: update QUESTION set VIEW_COUNT = VIEW_COUNT+? where id=?
+2020-08-26 15:21:18.509 DEBUG 23964 --- [http-nio-8887-exec-3] l.r.c.mapper.QuestionExtMapper.incView   : ==> Parameters: 1(Integer), 898(Long)
+2020-08-26 15:21:18.514 DEBUG 23964 --- [http-nio-8887-exec-3] l.r.c.mapper.QuestionExtMapper.incView   : <==    Updates: 1
