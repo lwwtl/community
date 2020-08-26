@@ -35,3 +35,55 @@
 2020-08-26 11:35:46.078 DEBUG 13664 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, AVATAR_URL from USER where ID = ?
 2020-08-26 11:35:46.078 DEBUG 13664 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 1(Long)
 2020-08-26 11:35:46.079 DEBUG 13664 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-08-26 12:36:21.118  INFO 31236 --- [main] life.rlw.community.CommunityApplication  : Starting CommunityApplication on DESKTOP-GQISRSU with PID 31236 (D:\IdeaProjects\community\target\classes started by rlw in D:\IdeaProjects\community)
+2020-08-26 12:36:21.124  INFO 31236 --- [main] life.rlw.community.CommunityApplication  : No active profile set, falling back to default profiles: default
+2020-08-26 12:36:22.403  INFO 31236 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2020-08-26 12:36:22.411  INFO 31236 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-08-26 12:36:22.411  INFO 31236 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-08-26 12:36:22.539  INFO 31236 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-08-26 12:36:22.539  INFO 31236 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1365 ms
+2020-08-26 12:36:23.075  INFO 31236 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-26 12:36:23.127  INFO 31236 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-08-26 12:36:23.292  INFO 31236 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2020-08-26 12:36:23.301  INFO 31236 --- [main] life.rlw.community.CommunityApplication  : Started CommunityApplication in 2.615 seconds (JVM running for 6.328)
+2020-08-26 12:36:27.509  INFO 31236 --- [http-nio-8887-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-26 12:36:27.509  INFO 31236 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-08-26 12:36:27.514  INFO 31236 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-08-26 12:36:27.570  INFO 31236 --- [http-nio-8887-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-08-26 12:36:27.712  INFO 31236 --- [http-nio-8887-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-08-26 12:36:27.722 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.QuestionExtMapper.countBySearch  : ==>  Preparing: select COUNT (*) from QUESTION
+2020-08-26 12:36:27.742 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.QuestionExtMapper.countBySearch  : ==> Parameters: 
+2020-08-26 12:36:27.755 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.QuestionExtMapper.countBySearch  : <==      Total: 1
+2020-08-26 12:36:27.760 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.Q.selectBySearch                 : ==>  Preparing: select * from QUESTION order by gmt_create desc limit ?,?
+2020-08-26 12:36:27.762 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.Q.selectBySearch                 : ==> Parameters: 0(Integer), 5(Integer)
+2020-08-26 12:36:27.771 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.Q.selectBySearch                 : <==      Total: 5
+2020-08-26 12:36:27.772 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, AVATAR_URL from USER where ID = ?
+2020-08-26 12:36:27.774 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 2(Long)
+2020-08-26 12:36:27.774 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-08-26 12:36:27.780 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, AVATAR_URL from USER where ID = ?
+2020-08-26 12:36:27.780 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 1(Long)
+2020-08-26 12:36:27.781 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-08-26 12:36:27.781 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, AVATAR_URL from USER where ID = ?
+2020-08-26 12:36:27.782 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 1(Long)
+2020-08-26 12:36:27.783 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-08-26 12:36:27.785 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, AVATAR_URL from USER where ID = ?
+2020-08-26 12:36:27.785 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 1(Long)
+2020-08-26 12:36:27.786 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-08-26 12:36:27.786 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, AVATAR_URL from USER where ID = ?
+2020-08-26 12:36:27.787 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 1(Long)
+2020-08-26 12:36:27.787 DEBUG 31236 --- [http-nio-8887-exec-1] l.r.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-08-26 12:36:34.074 DEBUG 31236 --- [http-nio-8887-exec-3] l.r.c.m.Q.selectByPrimaryKey             : ==>  Preparing: select ID, TITLE, GMT_CREATE, GMT_MODIFIED, CREATOR, COMMENT_COUNT, VIEW_COUNT, LIKE_COUNT, TAG , DESCRIPTION from QUESTION where ID = ?
+2020-08-26 12:36:34.075 DEBUG 31236 --- [http-nio-8887-exec-3] l.r.c.m.Q.selectByPrimaryKey             : ==> Parameters: 930(Long)
+2020-08-26 12:36:34.076 DEBUG 31236 --- [http-nio-8887-exec-3] l.r.c.m.Q.selectByPrimaryKey             : <==      Total: 1
+2020-08-26 12:36:34.077 DEBUG 31236 --- [http-nio-8887-exec-3] l.r.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, AVATAR_URL from USER where ID = ?
+2020-08-26 12:36:34.077 DEBUG 31236 --- [http-nio-8887-exec-3] l.r.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 2(Long)
+2020-08-26 12:36:34.077 DEBUG 31236 --- [http-nio-8887-exec-3] l.r.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-08-26 12:36:34.097 DEBUG 31236 --- [http-nio-8887-exec-3] l.r.c.m.CommentMapper.selectByExample    : ==>  Preparing: select ID, PARENT_ID, TYPE, COMMENTATOR, GMT_CREATE, GMT_MODIFIED, LIKE_COUNT, CONTENT, SECOND_COUNT from COMMENT WHERE ( PARENT_ID = ? and TYPE = ? ) order by gmt_create desc
+2020-08-26 12:36:34.099 DEBUG 31236 --- [http-nio-8887-exec-3] l.r.c.m.CommentMapper.selectByExample    : ==> Parameters: 930(Long), 1(Integer)
+2020-08-26 12:36:34.101 DEBUG 31236 --- [http-nio-8887-exec-3] l.r.c.m.CommentMapper.selectByExample    : <==      Total: 4
+2020-08-26 12:36:34.104 DEBUG 31236 --- [http-nio-8887-exec-3] l.r.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, AVATAR_URL from USER WHERE ( ID in ( ? , ? ) )
+2020-08-26 12:36:34.105 DEBUG 31236 --- [http-nio-8887-exec-3] l.r.c.mapper.UserMapper.selectByExample  : ==> Parameters: 1(Long), 2(Long)
+2020-08-26 12:36:34.106 DEBUG 31236 --- [http-nio-8887-exec-3] l.r.c.mapper.UserMapper.selectByExample  : <==      Total: 2
+2020-08-26 12:36:34.113 DEBUG 31236 --- [http-nio-8887-exec-3] l.r.c.mapper.QuestionExtMapper.incView   : ==>  Preparing: update QUESTION set VIEW_COUNT = VIEW_COUNT+? where id=?
+2020-08-26 12:36:34.118 DEBUG 31236 --- [http-nio-8887-exec-3] l.r.c.mapper.QuestionExtMapper.incView   : ==> Parameters: 1(Integer), 930(Long)
+2020-08-26 12:36:34.124 DEBUG 31236 --- [http-nio-8887-exec-3] l.r.c.mapper.QuestionExtMapper.incView   : <==    Updates: 1

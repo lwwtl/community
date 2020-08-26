@@ -67,3 +67,5 @@ esc 退出到命令行
 :wq 保存退出  
 mvn package 导新配置  
 java -jar -Dspring.profiles.active=production target/community-0.0.1-SNAPSHOT.jar  
+ps -aux|grep java  查看当前进程  
+git pull  

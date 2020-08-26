@@ -33,7 +33,7 @@
     where id != #{id} and tag regexp #{tag}
   </select>
   <select id="countBySearch" parameterType="life.rlw.community.dto.QuestionQueryDTO" resultType="java.lang.Integer">
-    select count(*)
+    select COUNT (*)
     from QUESTION
     <where>
       <if test="search != null">
