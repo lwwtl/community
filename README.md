@@ -48,3 +48,22 @@ create table QUESTION
 mvn flyway:migrate
 mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
 ```
+## 部署
+yum update  
+yum install git 安装git  
+pwd 显示工作路径  
+mkdir App   创建一个叫做APP目录  
+ls  查看目录中的文件  
+cd App  进入目录  
+git clone  
+cd community  
+yum install maven 安装maven  
+mvn compile package  
+more src/main/resources/application.properties 以页形式查看文件内容  
+cp file1 file2 复制一个文件  
+vim src/main/resources/application.properties 编辑  
+a 开始编辑  
+esc 退出到命令行  
+:wq 保存退出  
+mvn package 导新配置  
+java -jar -Dspring.profiles.active=production target/community-0.0.1-SNAPSHOT.jar  

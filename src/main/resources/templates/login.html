@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,7 +26,7 @@
     <button class="login">Login</button>
 -->
     <div class="auth">
-        <a  href="https://github.com/login/oauth/authorize?client_id=Iv1.923a425f456712c6&redirect_uri=http://localhost:8887/callback&scope=user&state=1" title="GitHub登录">
+            <a th:href="@{https://github.com/login/oauth/authorize(client_id='Iv1.923a425f456712c6',redirect_uri=${#httpServletRequest.getServletContext().getAttribute('redirectUri')},scope='user',state=1)}" title="GitHub登录">
             <i class="fa fa-github fa-2x" aria-hidden="true" > </i>
         </a>
     </div>
