@@ -2,7 +2,6 @@ package life.rlw.community.controller;
 
 import life.rlw.community.dto.AccessTokenDTO;
 import life.rlw.community.dto.GithubUser;
-import life.rlw.community.mapper.UserMapper;
 import life.rlw.community.model.User;
 import life.rlw.community.provider.GithubProvider;
 import life.rlw.community.service.UserService;
@@ -24,25 +23,25 @@ public class AuthorizeController {
     private GithubProvider githubProvider;
     //将配置封装到application里
     @Value("${github.client.id}")
-    private String clientId;
+    private String gitclientId;
     @Value("${github.client.secret}")
-    private String clientSecret;
+    private String gitclientSecret;
     @Value("${github.redirect.uri}")
-    private String  redirectUri;
+    private String gitredirectUri;
 
     @Autowired
     private UserService userService;
 
-    @GetMapping("/callback")
+    @GetMapping("/githubcallback")
     public String callback(@RequestParam(name="code") String code,
                            @RequestParam(name="state") String state,
                            HttpServletRequest request,
                            HttpServletResponse response) throws Exception {
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
-        accessTokenDTO.setClient_id(clientId);
-        accessTokenDTO.setClient_secret(clientSecret);
+        accessTokenDTO.setClient_id(gitclientId);
+        accessTokenDTO.setClient_secret(gitclientSecret);
         accessTokenDTO.setCode(code);
-        accessTokenDTO.setRedirect_uri(redirectUri);
+        accessTokenDTO.setRedirect_uri(gitredirectUri);
         accessTokenDTO.setState(state);
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
         GithubUser githubUser = githubProvider.getUser(accessToken);
@@ -63,15 +62,17 @@ public class AuthorizeController {
         }
 
     }
-    @GetMapping("/logout")
-    private String logout(HttpServletRequest request,
-                          HttpServletResponse response){
-        request.getSession().removeAttribute("user");
-        Cookie cookie=new Cookie("token",null);
-        cookie.setMaxAge(0);
-        response.addCookie(cookie);
-        return "redirect:/";
-    }
+
+
+        @GetMapping("/logout")
+        private String logout(HttpServletRequest request,
+                              HttpServletResponse response){
+            request.getSession().removeAttribute("user");
+            Cookie cookie=new Cookie("token",null);
+            cookie.setMaxAge(0);
+            response.addCookie(cookie);
+            return "redirect:/";
+        }
     @GetMapping("/login")
     private String login(){
         return "login";

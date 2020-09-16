@@ -1,7 +1,8 @@
 package life.rlw.community.cache;
 
 import life.rlw.community.dto.TagDTO;
-import org.h2.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,7 +24,7 @@ public class TagCache {
         return tagDTOS;
     }
     public static String filterInvalid(String tags){
-        String[] split = StringUtils.arraySplit(tags, '#',true);
+        String[] split = StringUtils.split(tags, "#");
         List<TagDTO> tagDTOS = get();
         List<String> tagList = tagDTOS.stream().flatMap(tag -> tag.getTags().stream()).collect(Collectors.toList());
         String invalid = Arrays.stream(split).filter(t -> tagList.contains(t)).collect(Collectors.joining("#"));

@@ -1,12 +1,14 @@
 package life.rlw.community.controller;
 
+
 import life.rlw.community.cache.TagCache;
 import life.rlw.community.dto.QuestionDTO;
 import life.rlw.community.mapper.QuestionMapper;
 import life.rlw.community.model.Question;
 import life.rlw.community.model.User;
 import life.rlw.community.service.QuestionService;
-import org.h2.util.StringUtils;
+
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -70,7 +72,7 @@ public class PublishController {
             return "publish";
         }
         String invalid = TagCache.filterInvalid(tag);
-        if(StringUtils.isNullOrEmpty(invalid)){
+        if(StringUtils.isNotBlank(invalid)){
             model.addAttribute("error","输入标签不正确:"+invalid);
             return "publish";
         }
